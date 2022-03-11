@@ -3,7 +3,7 @@ package fr.thibaut2;
 import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
-public class SecondaryController {
+public class AccueilController {
 
     @FXML
     private Label Text_U;

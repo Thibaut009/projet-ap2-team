@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="503.0" prefWidth="337.0" spacing="20.0" style="-fx-background-color: navy;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.thibaut2.PrimaryController">
+<VBox alignment="CENTER" prefHeight="503.0" prefWidth="337.0" spacing="20.0" style="-fx-background-color: navy;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.thibaut2.LoginController">
    <children>
       <Label alignment="TOP_CENTER" text="login" textAlignment="CENTER" textFill="WHITE">
          <font>
@@ -50,7 +50,7 @@
             <Insets />
          </VBox.margin>
       </TextArea>
-      <Label fx:id="Erreur" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="59.0" text="">
+      <Label fx:id="Erreur" alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" prefHeight="40.0" prefWidth="59.0" text="" textFill="#eeff03">
          <VBox.margin>
             <Insets bottom="-10.0" top="-10.0" />
          </VBox.margin>

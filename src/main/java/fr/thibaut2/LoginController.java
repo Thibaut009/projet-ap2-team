@@ -12,7 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-public class PrimaryController {
+public class LoginController {
 
     @FXML
     private TextArea C_login;
@@ -20,9 +20,6 @@ public class PrimaryController {
     private TextArea C_mdp;
     @FXML
     private Label Erreur;
-
-
-
 
     @FXML
     void switchToSecondary(ActionEvent event) throws IOException {
@@ -65,7 +62,7 @@ public class PrimaryController {
                             System.out.print(", prénom: " + Donnee.prenom);
                             System.out.print(", nom: " + Donnee.nom);
                             
-                            App.setRoot("secondary");
+                            App.setRoot("accueil");
                             
                         } 
                         
