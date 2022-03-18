@@ -9,13 +9,13 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * JavaFX App s
  */
 public class App extends Application {
 
     private static Scene scene;
 
-    @Override  
+    @Override
     public void start(Stage stage) throws IOException {
         scene = new Scene(loadFXML("privilege"), 330, 540);
         stage.setScene(scene);
