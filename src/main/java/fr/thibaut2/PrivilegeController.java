@@ -20,12 +20,12 @@ public class PrivilegeController {
 
     @FXML
     void SwitchToComptable(ActionEvent event) throws IOException {
-        App.setRoot("login");
+        App.setRoot("loginC");
     }
 
     @FXML
     void SwitchToVisiteur(ActionEvent event) throws IOException {
-        App.setRoot("login");
+        App.setRoot("loginV");
     }
 
 }

@@ -12,7 +12,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-public class LoginController {
+public class LoginVcontroller {
 
     @FXML
     private TextArea C_login;
@@ -24,29 +24,30 @@ public class LoginController {
     @FXML
     void switchToSecondary(ActionEvent event) throws IOException {
 
-        System.out.println( C_login.getText());
-        System.out.println( C_mdp.getText());
+        System.out.println(C_login.getText());
+        System.out.println(C_mdp.getText());
 
         if (!C_login.getText().equals("") && !C_mdp.getText().equals("")) {
 
             String dbURL = "jdbc:mysql://localhost:3306/gsb";
             String username = "root";
             String password = "";
-            
+
             try {
-            
+
                 Connection conn = DriverManager.getConnection(dbURL, username, password);
-            
+
                 if (conn != null) {
                     System.out.println("Connected");
 
-                    //étape 3: créer l'objet statement 
+                    // étape 3: créer l'objet statement
                     Statement stmt = conn.createStatement();
-                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM comptables WHERE ag_login='"+C_login.getText()+"' AND ag_password='"+C_login.getText()+"' IS NOT NULL";
+                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM comptables WHERE ag_login='"
+                            + C_login.getText() + "' AND ag_password='" + C_login.getText() + "' IS NOT NULL";
                     ResultSet res = stmt.executeQuery(sql);
-                    
+
                     if (res.next()) {
-                        //Récupérer par nom de colonne
+                        // Récupérer par nom de colonne
                         Donnee.matricule = res.getString("ag_matricule");
                         Donnee.login = res.getString("ag_login");
                         Donnee.mdp = res.getString("ag_password");
@@ -55,23 +56,23 @@ public class LoginController {
 
                         if (C_login.getText().equals(Donnee.login) && C_mdp.getText().equals(Donnee.mdp)) {
 
-                            //Afficher les valeurs
+                            // Afficher les valeurs
                             System.out.print(", matricule: " + Donnee.matricule);
                             System.out.print(", login: " + Donnee.login);
                             System.out.print(", password: " + Donnee.mdp);
                             System.out.print(", prénom: " + Donnee.prenom);
                             System.out.print(", nom: " + Donnee.nom);
-                            
+
                             App.setRoot("accueil");
-                            
-                        } 
-                        
+
+                        }
+
                     } else {
                         Erreur.setText("identifiant incorrect");
                     }
 
-                } 
-            
+                }
+
             } catch (SQLException ex) {
                 ex.printStackTrace();
             }
