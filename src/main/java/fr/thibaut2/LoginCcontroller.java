@@ -29,7 +29,7 @@ public class LoginCcontroller {
 
         if (!C_login.getText().equals("") && !C_mdp.getText().equals("")) {
 
-            String dbURL = "jdbc:mysql://localhost:3306/gsb";
+            String dbURL = "jdbc:mysql://localhost:3306/application";
             String username = "root";
             String password = "";
 
@@ -42,17 +42,17 @@ public class LoginCcontroller {
 
                     // étape 3: créer l'objet statement
                     Statement stmt = conn.createStatement();
-                    String sql = "SELECT ag_matricule, ag_login, ag_password, ag_prenom, ag_nom FROM comptables WHERE ag_login='"
-                            + C_login.getText() + "' AND ag_password='" + C_login.getText() + "' IS NOT NULL";
+                    String sql = "SELECT matricule, login, password, prenom, nom FROM utilisateurs WHERE login='"
+                            + C_login.getText() + "' AND password='" + C_login.getText() + "' IS NOT NULL";
                     ResultSet res = stmt.executeQuery(sql);
 
                     if (res.next()) {
                         // Récupérer par nom de colonne
-                        Donnee.matricule = res.getString("ag_matricule");
-                        Donnee.login = res.getString("ag_login");
-                        Donnee.mdp = res.getString("ag_password");
-                        Donnee.prenom = res.getString("ag_prenom");
-                        Donnee.nom = res.getString("ag_nom");
+                        Donnee.matricule = res.getString("matricule");
+                        Donnee.login = res.getString("login");
+                        Donnee.mdp = res.getString("password");
+                        Donnee.prenom = res.getString("prenom");
+                        Donnee.nom = res.getString("nom");
 
                         if (C_login.getText().equals(Donnee.login) && C_mdp.getText().equals(Donnee.mdp)) {
 
@@ -63,7 +63,7 @@ public class LoginCcontroller {
                             System.out.print(", prénom: " + Donnee.prenom);
                             System.out.print(", nom: " + Donnee.nom);
 
-                            App.setRoot("accueil");
+                            App.setRoot("FicheRemboursement");
 
                         }
 
